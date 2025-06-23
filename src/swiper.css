@@ -1,0 +1,36 @@
+.swiper-pagination-bullet {
+  background-color: rgb(172, 172, 172) !important; /* Default rang */
+  border: solid 1px red;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff5733 !important; /* Faol nuqta rangi */
+  opacity: 1;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  color: white;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: scroll-left linear infinite;
+}
+
+.marquee-content span {
+  white-space: nowrap;
+  padding-right: 50px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
