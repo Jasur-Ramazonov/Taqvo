@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Language } from "../Header";
 
-const language = localStorage.getItem("i18nextLng") || Language.UZB;
+const language = localStorage.getItem("i18nextLng") || "uz";
 
 const initialState = {
   isClose: true,
