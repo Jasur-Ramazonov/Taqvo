@@ -52,7 +52,7 @@ const Modal = () => {
         onClick={() => {
           isForm += 1;
         }}
-        className="absolute bg-red-800 rounded-md pt-10 pb-8 px-4 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10"
+        className="absolute bg-red-800 rounded-md w-full xs:w-max pt-10 pb-8 px-4 top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] z-10"
       >
         <form
           onSubmit={handleSubmit((d) => {

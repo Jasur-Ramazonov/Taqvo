@@ -1,9 +1,11 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { setIsClose } from "./utils/mySlice";
-import { useDispatch } from "react-redux";
+import { setIsClose, setIsOpen } from "./utils/mySlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { RootState } from "./utils/store";
+import { setCurrentLanguage } from "./utils/mySlice";
 
 export enum Language {
   UZB = "uz",
@@ -12,11 +14,12 @@ export enum Language {
 }
 
 const Header = () => {
-  const language = localStorage.getItem("i18nextLng") || Language.UZB;
-  const [currentLanguage, setCurrentLanguage] = useState(language);
   const [isClick, setIsClick] = useState(false);
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
+  const currentLanguage = useSelector(
+    (state: RootState) => state.myReducer.currentLanguage
+  );
 
   useEffect(() => {
     i18n.changeLanguage(currentLanguage);
@@ -62,7 +65,7 @@ const Header = () => {
                 >
                   <p
                     onClick={() => {
-                      setCurrentLanguage(Language.UZB);
+                      dispatch(setCurrentLanguage(Language.UZB));
                       setIsClick(false);
                     }}
                     className={clsx("pr-8 pl-3 p-2 cursor-pointer uppercase", {
@@ -73,7 +76,7 @@ const Header = () => {
                   </p>
                   <p
                     onClick={() => {
-                      setCurrentLanguage(Language.RUS);
+                      dispatch(setCurrentLanguage(Language.RUS));
                       setIsClick(false);
                     }}
                     className={clsx("pr-8 pl-3 p-2 cursor-pointer uppercase", {
@@ -84,7 +87,7 @@ const Header = () => {
                   </p>
                   <p
                     onClick={() => {
-                      setCurrentLanguage(Language.ENG);
+                      dispatch(setCurrentLanguage(Language.ENG));
                       setIsClick(false);
                     }}
                     className={clsx("pr-8 pl-3 p-2 cursor-pointer uppercase", {
@@ -104,7 +107,14 @@ const Header = () => {
                 {t("Contact")}
               </button>
             </div>
-            <div className="lg:hidden block text-2xl">☰</div>
+            <div
+              onClick={() => {
+                dispatch(setIsOpen(true));
+              }}
+              className="lg:hidden block text-2xl"
+            >
+              ☰
+            </div>
           </div>
         </div>
       </div>

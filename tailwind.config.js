@@ -9,6 +9,9 @@ export default {
         bebasneue: ["Bebas Neue", "sans-serif"],
         oswal: ["Oswald", "sans-serif"],
       },
+      screens: {
+        xs: "433px",
+      },
     },
   },
   plugins: [],

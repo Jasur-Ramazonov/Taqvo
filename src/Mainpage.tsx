@@ -16,6 +16,7 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import ModalMobile from "./ModalMobile";
 
 const Mainpage = () => {
   const { t } = useTranslation();
@@ -72,7 +73,7 @@ const Mainpage = () => {
   }, []);
 
   return (
-    <div className="w-full h-[100vh] flex flex-col ">
+    <div className="w-full h-[100vh] flex flex-col">
       <Header />
       <section className="flex flex-col bg-[#991b1b] lg:pb-0 pb-14">
         <div className="marquee-container lg:order-1 order-2 lg:mt-48 lg:pb-0 pb-16">
@@ -463,6 +464,8 @@ const Mainpage = () => {
       </footer>
       {/* Modal */}
       <Modal />
+      {/* Modal mobile */}
+      <ModalMobile />
     </div>
   );
 };
