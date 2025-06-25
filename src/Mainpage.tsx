@@ -425,7 +425,7 @@ const Mainpage = () => {
               <h3 className="uppercase font-oswal font-medium mb-5 text-3xl text-white">
                 {t("Our Certificates")}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                 {sertificates.map((src, index) => (
                   <img src={src} alt={`sertificat ${index}`} />
                 ))}
