@@ -38,9 +38,9 @@ const ModalMobile = () => {
         ⤬
       </button>
       <div className="flex flex-col gap-4 mt-14">
-        <div className="w-[150px]">
+        <Link to="/" className="w-[150px]">
           <img src="../photos/aqvo logo 2.png" alt="Taqvo logo" />
-        </div>
+        </Link>
         <ul className="flex flex-col gap-4 text-red-800 font-[500] text-base font-montserratalternates">
           <li>
             <Link to={"/"}>{t("Home")}</Link>
